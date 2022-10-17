@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+
+#for database
+sqlalchemy         
+psycopg2
+
+#environment variables
+python-dotenv
+
+#for email validation
+pydantic[email]
