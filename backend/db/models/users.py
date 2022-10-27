@@ -11,5 +11,6 @@ class User(Base):
   hashed_password = Column(String, nullable = False)
   is_active = Column(Boolean(), default = True)
   home_lake_id = Column(Integer, ForeignKey("lake.id"))
+  
   home_lake = relationship("Lake", back_populate = "locals")
   catches = relationship("Catch", back_populates = "user")
