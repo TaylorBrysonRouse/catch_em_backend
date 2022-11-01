@@ -3,7 +3,7 @@ from sqlalchemy.orm import relationship
 
 from db.base_class import Base
 
-class WaterClarity(Base):
+class Clarity(Base):
   id = Column(Integer, primary_key = True, index = True)
   water_clarity_name = Column(String, nullable = False)
   water_clarity_range = Column(String, nullable = False)

@@ -1,4 +1,3 @@
-from ssl import cert_time_to_seconds
 from fastapi import APIRouter
 from sqlalchemy.orm import Session
 from fastapi import Depends
@@ -10,6 +9,6 @@ from db.repository.users import create_user
 router = APIRouter()
 
 @router.post("/signup", response_model = ShowUser)
-def create_user(user: UserSignUp, db: Session = Depends(get_db))
+def user_signup(user: UserSignUp, db: Session = Depends(get_db)): #start here
   user = create_user(user = user, db = db)
   return user

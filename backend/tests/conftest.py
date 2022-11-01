@@ -15,16 +15,15 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from db.base import Base
 from db.session import SQLALCHEMY_DATABASE_URL, get_db
 from api.base import api_router
+from core.config import settings
 
 def start_application():
   app = FastAPI()
   app.include_router(api_router)
   return app
 
-SQLALCHEMY_DATABASE_URL = "sql:///./test_db.db"
-engine = create_engine(
-  SQLALCHEMY_DATABASE_URL, connect_args = {"check_same_thread": False}
-)
+SQLALCHEMY_DATABASE_URL = settings.TEST_DATABASE_URL
+engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
 SessionTesting = sessionmaker(autocommit = False, autoflush = False, bind = engine)
 

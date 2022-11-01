@@ -12,5 +12,5 @@ class User(Base):
   is_active = Column(Boolean(), default = True)
   home_lake_id = Column(Integer, ForeignKey("lake.id"))
   
-  home_lake = relationship("Lake", back_populate = "locals")
+  home_lake = relationship("Lake", back_populates = "locals")
   catches = relationship("Catch", back_populates = "user")

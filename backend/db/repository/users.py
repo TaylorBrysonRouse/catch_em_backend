@@ -8,7 +8,6 @@ def create_user(user: UserSignUp, db: Session):
               email = user.email,
               hashed_password = PasswordHasher.get_password_hash(user.password),
               is_active = True,
-              home_lake_id = user.home_lake_id
               )
   db.add(user)
   db.commit()

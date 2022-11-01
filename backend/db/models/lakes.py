@@ -10,4 +10,4 @@ class Lake(Base):
   lake_state = Column(String, nullable = False)
   lake_latitude = Column(DOUBLE_PRECISION, nullable = False)
   lake_longitude = Column(DOUBLE_PRECISION, nullable = False)
-  locals = relationship("User", back_populates = "home_lake")
+  locals = relationship("User", back_populates="home_lake")
