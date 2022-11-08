@@ -19,12 +19,9 @@ def GetWeatherConditions(lat, long, time):
     open_weather_map_get_request = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={long}&appid={OPEN_WEATHER_MAP_API_KEY}&units=imperial"
     api_called = 'Current'
 
-  print(open_weather_map_get_request)
   response = requests.get(open_weather_map_get_request).json()
 
   response["api_called"] = f"{api_called}"
-
-  print(response)
 
   weather_data = FormatOpenWeatherResponse(response)
   
@@ -51,12 +48,7 @@ def GetWindDirection(wind_deg):
   return direction
 
 def FormatOpenWeatherResponse(format_response):
-  print(format_response)
   response = json.loads(json.dumps(format_response))
-
-  print("hello")
-  print(response)
-  print(response["weather"][0]["main"])
 
   if response["cod"] == 200:
     if response["api_called"] == 'History':
