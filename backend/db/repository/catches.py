@@ -38,3 +38,11 @@ async def create_catch(catch: CatchCreate, db: Session, user_id: int):
     db.commit()
     db.refresh(catch)
     return catch
+
+async def retrieve_catch(id: int, db: Session):
+  catch = db.query(Catch).filter(Catch.id == id).first()
+  return catch
+
+async def retrieve_catches(user_id: int, db: Session):
+  catches = db.query(Catch).filter(Catch.user_id == user_id).all()
+  return catches
