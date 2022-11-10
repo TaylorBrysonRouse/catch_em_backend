@@ -17,6 +17,9 @@ passlib[bcrypt]
 #jwt
 python-jose
 
+#for accessing form data
+python-multipart
+
 #testing
 pytest
 requests
