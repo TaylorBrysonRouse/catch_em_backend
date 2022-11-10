@@ -6,6 +6,8 @@ from datetime import datetime, timedelta
 
 from core.config import settings
 
+# Register for One Call 3.0
+
 def GetWeatherConditions(lat, long, time):
   OPEN_WEATHER_MAP_API_KEY = settings.OPEN_WEATHER_MAP_API_KEY
   MINUTES_TO_USE_HISTORY_API = settings.MINUTES_TO_USE_HISTORY_API
