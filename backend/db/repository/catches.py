@@ -39,6 +39,15 @@ async def create_catch(catch: CatchCreate, db: Session, user_id: int):
     db.refresh(catch)
     return catch
 
+async def delete_catch(id: int, user_id: int, db: Session):
+  catch = db.query(Catch).filter(Catch.id == id)
+  if not catch.first():
+    return 0
+  catch.delete(synchronize_session = False)
+  db.commit()
+  return 1
+
+
 async def retrieve_catch(id: int, db: Session):
   catch = db.query(Catch).filter(Catch.id == id).first()
   return catch
