@@ -11,6 +11,6 @@ class CatchCreate(BaseModel):
   water_depth: Optional[float] = None
   water_clarity: Optional[str] = None
   water_temp: Optional[float] = None
-  bait_id: Optional[int] = None
-  bait_color: Optional[int] = None
-  bait_weight: Optional[int] = None
+  bait_type: Optional[str] = None
+  bait_color: Optional[str] = None
+  bait_weight: Optional[str] = None

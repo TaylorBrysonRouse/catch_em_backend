@@ -3,6 +3,9 @@ from schemas.catches import CatchCreate
 from db.models.catches import Catch
 from db.repository.clouds import get_cloud_type
 from db.repository.clarities import find_water_clarity
+from db.repository.bait_types import find_bait_type
+from db.repository.weights import find_weight
+from db.repository.colors import find_color
 from core.weather import GetWeatherConditions, GetWindDirection
 
 async def create_catch(catch: CatchCreate, db: Session, user_id: int):
@@ -30,9 +33,9 @@ async def create_catch(catch: CatchCreate, db: Session, user_id: int):
                   catch_rain = rain_bool,
                   catch_wind_direction = GetWindDirection(weather_response["wind_deg"]),
                   catch_wind_speed = weather_response["wind_speed"],
-                  bait_id = catch.bait_id,
-                  bait_color_id = catch.bait_color,
-                  bait_weight_id = catch.bait_weight
+                  bait_id = find_bait_type(catch.bait_type, db).id,
+                  bait_color_id = find_color(catch.bait_color, db).id,
+                  bait_weight_id = find_weight(catch.bait_weight, db).id
                  )
     db.add(catch)
     db.commit()
