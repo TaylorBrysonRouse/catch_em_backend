@@ -1,3 +1,5 @@
+# base - file used to import all db models
+
 from db.base_class import Base
 from db.models.users import User
 from db.models.lakes import Lake

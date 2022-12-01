@@ -1,7 +1,7 @@
 from typing import Any
 from sqlalchemy.ext.declarative import as_declarative, declared_attr
 
-
+# base - file used for config of SQLAlchemy (FastAPI ORM) to establish db models
 @as_declarative()
 class Base:
     id: Any

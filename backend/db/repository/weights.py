@@ -1,6 +1,7 @@
 from sqlalchemy.orm import Session
 from db.models.weights import Weight
 
+# weights - file used for handling weight methods that touch the db
 async def retrieve_weights(db: Session):
   return db.query(Weight).all()
 

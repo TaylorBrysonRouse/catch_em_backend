@@ -3,6 +3,7 @@ from typing import Optional
 from pydantic import BaseModel
 from datetime import datetime
 
+# catches - Schema for catch creation
 class CatchCreate(BaseModel):
   latitude: float
   longitude: float

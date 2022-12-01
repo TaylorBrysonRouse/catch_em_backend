@@ -11,6 +11,7 @@ from schemas.catches import CatchCreate
 from db.repository.catches import create_catch, retrieve_catch, retrieve_catches, delete_catch
 from api.v1.route_login import get_current_user
 
+# route_catches - CRUD Endpoints for Catch Model
 router = APIRouter()
 
 

@@ -3,6 +3,7 @@ from sqlalchemy.orm import relationship
 
 from db.base_class import Base
 
+# clairties - db model for water clarity types
 class Clarity(Base):
   id = Column(Integer, primary_key = True, index = True)
   water_clarity_name = Column(String, nullable = False)

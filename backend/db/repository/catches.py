@@ -8,6 +8,7 @@ from db.repository.weights import find_weight
 from db.repository.colors import find_color
 from core.weather import GetWeatherConditions, GetWindDirection
 
+# cathes - file used for handling catch methods that touch the db
 async def create_catch(catch: CatchCreate, db: Session, user_id: int):
   weather_response = GetWeatherConditions(catch.latitude, catch.longitude, catch.catch_date )
 

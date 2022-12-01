@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 
 from core.config import settings
 
-# Register for One Call 3.0
+# weather - file that handles calls to the OpenWeatherMap Api; the api used for catch weather data
 
 def GetWeatherConditions(lat, long, time):
   OPEN_WEATHER_MAP_API_KEY = settings.OPEN_WEATHER_MAP_API_KEY
