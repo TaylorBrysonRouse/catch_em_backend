@@ -4,6 +4,7 @@ uvicorn
 #for database
 sqlalchemy         
 psycopg2
+alembic
 
 #environment variables
 python-dotenv
