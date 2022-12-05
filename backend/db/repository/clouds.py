@@ -1,6 +1,7 @@
 from sqlalchemy.orm import Session
 from db.models.clouds import Cloud
 
+# clouds - file used for handling cloud type methods that touch the db
 def get_cloud_type(cloud_percent, db: Session):
   cloud_types = db.query(Cloud).all()
 

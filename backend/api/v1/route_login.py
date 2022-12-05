@@ -11,11 +11,12 @@ from core.security import create_access_token
 from core.config import settings
 from jose import JWTError, jwt
 
+# route_login - Endpoint for User Login and Method to Authenticate User
 router = APIRouter()
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/login/token")
 
-@router.post("/token", response_model = Token)
+@router.post("/token")
 def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
   user = authenticate_user(form_data.username, form_data.password, db)
   if not user: 
@@ -26,7 +27,7 @@ def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(), db:
   access_token = create_access_token(
     data = {"username": user.username, "email": user.email}
   )
-  return {"token": access_token, "token_type": "bearer"}
+  return {"user": {"username": user.username, "email": user.email, "is_active": user.is_active }, "access_token": access_token}
 
 
 def authenticate_user(username: str, password: str, db: Session):

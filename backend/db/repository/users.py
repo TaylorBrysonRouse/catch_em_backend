@@ -3,6 +3,7 @@ from schemas.users import UserSignUp
 from db.models.users import User
 from core.hashing import PasswordHasher
 
+# users - file used for handling create_user method that touches the db
 def create_user(user: UserSignUp, db: Session):
   user = User(username = user.username,
               email = user.email,

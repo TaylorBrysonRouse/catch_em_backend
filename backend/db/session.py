@@ -4,6 +4,7 @@ from typing import Generator
 
 from core.config import settings
 
+# session - file to establish connection with db
 
 SQLALCHEMY_DATABASE_URL = settings.DATABASE_URL
 engine = create_engine(SQLALCHEMY_DATABASE_URL)

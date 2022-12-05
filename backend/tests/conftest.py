@@ -17,6 +17,7 @@ from db.session import SQLALCHEMY_DATABASE_URL, get_db
 from api.base import api_router
 from core.config import settings
 
+# conftest - Automated Test Config File
 def start_application():
   app = FastAPI()
   app.include_router(api_router)

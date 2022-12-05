@@ -3,6 +3,7 @@ from sqlalchemy.orm import relationship
 
 from db.base_class import Base
 
+# weights - db model for weights
 class Weight(Base):
   id = Column(Integer, primary_key = True, index = True)
   weight_name = Column(String, nullable = False)

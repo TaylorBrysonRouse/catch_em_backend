@@ -5,6 +5,7 @@ from pathlib import Path
 env_path = Path('.') / '.env'
 load_dotenv(dotenv_path=env_path)
 
+# config - File used for accessing environment variables
 class Settings:
   PROJECT_NAME: str = "Catch 'Em"
   PROJECT_VERSION: str = "1.0.0"
@@ -14,13 +15,13 @@ class Settings:
   POSTGRES_SERVER : str = os.getenv("POSTGRES_SERVER","localhost")
   POSTGRES_PORT : str = os.getenv("POSTGRES_PORT",5432) # default postgres port is 5432
   POSTGRES_TEST_DB: str = os.getenv("POSTGRES_TEST_DB","tdd")
-  POSTGRES_DB : str = os.getenv("POSTGRES_DB","tdd")
+  POSTGRES_DB : str = os.getenv("POSTGRES_DB","ddd")
 
   DATABASE_URL = f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_SERVER}:{POSTGRES_PORT}/{POSTGRES_DB}"
 
   TEST_DATABASE_URL = f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_SERVER}:{POSTGRES_PORT}/{POSTGRES_TEST_DB}"
 
-  JWT_TOKEN_EXPIRATION_MINUTES = 60
+  JWT_TOKEN_EXPIRATION_MINUTES = 60 * 6
   JWT_SECRET = os.getenv("JWT_SECRET")
   JWT_ALGORITHM = os.getenv("JWT_ALGORITHM")
 

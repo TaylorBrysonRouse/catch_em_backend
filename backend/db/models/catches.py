@@ -4,7 +4,7 @@ from sqlalchemy.orm import relationship
 
 from db.base_class import Base
 
-
+# catches - db model for catches
 class Catch(Base):
   id = Column(Integer, primary_key = True, index = True)
   user_id = Column(Integer, ForeignKey("user.id"), nullable = False)

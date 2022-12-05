@@ -1,6 +1,7 @@
 from sqlalchemy.orm import Session
 from db.models.colors import Color
 
+# colors - file used for handling color methods that touch the db
 async def retrieve_colors(db: Session):
   return db.query(Color).all()
 

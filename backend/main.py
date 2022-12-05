@@ -4,6 +4,7 @@ from api.base import api_router
 from db.session import engine
 from db.base import Base
 
+# main - Entry Point for Catch 'Em Backend API
 def include_router(app):
   app.include_router(api_router)
 

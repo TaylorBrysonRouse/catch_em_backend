@@ -3,6 +3,7 @@ from sqlalchemy.orm import relationship
 
 from db.base_class import Base
 
+# clouds - db model for cloud types
 class Cloud(Base):
   id = Column(Integer, primary_key = True, index = True)
   cloud_type_name = Column(String, nullable = False)

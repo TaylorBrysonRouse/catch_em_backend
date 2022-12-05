@@ -4,6 +4,7 @@ from sqlalchemy.orm import relationship
 
 from db.base_class import Base
 
+# lakes - db model for lakes - not currently used
 class Lake(Base):
   id = Column(Integer, primary_key = True, index = True)
   lake_name = Column(String, unique = True, nullable = False)

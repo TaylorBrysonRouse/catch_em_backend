@@ -7,6 +7,7 @@ from api.v1.route_login import get_current_user
 from db.models.users import User
 from db.repository.weights import retrieve_weights
 
+# route_weights - CRUD Endpoints for Weight Model
 router = APIRouter()
 
 @router.get('/')

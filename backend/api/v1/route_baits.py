@@ -7,6 +7,7 @@ from api.v1.route_login import get_current_user
 from db.models.users import User
 from db.repository.bait_types import retrieve_bait_types
 
+# route_baits - CRUD Endpoints for Baits Model
 router = APIRouter()
 
 @router.get('/')

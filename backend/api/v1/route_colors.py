@@ -7,6 +7,7 @@ from api.v1.route_login import get_current_user
 from db.models.users import User
 from db.repository.colors import retrieve_colors
 
+# route_colors - CRUD Endpoints for Color Model
 router = APIRouter()
 
 @router.get('/')
