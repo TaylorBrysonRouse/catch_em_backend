@@ -1,8 +1,11 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
+from fastapi.responses import JSONResponse
 from core.config import settings
 from api.base import api_router
 from db.session import engine
 from db.base import Base
+from fastapi_jwt_auth import AuthJWT
+from fastapi_jwt_auth.exceptions import AuthJWTException
 
 # main - Entry Point for Catch 'Em Backend API
 def include_router(app):
@@ -18,3 +21,14 @@ def start_application():
   return app
 
 app = start_application()
+
+@AuthJWT.load_config
+def get_config():
+  return settings
+
+@app.exception_handler(AuthJWTException)
+def authjwt_exception_handler(request: Request, exc: AuthJWTException):
+    return JSONResponse(
+        status_code=exc.status_code,
+        content={"detail": exc.message}
+    )

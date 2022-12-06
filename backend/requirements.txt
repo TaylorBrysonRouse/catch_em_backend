@@ -17,6 +17,7 @@ passlib[bcrypt]
 
 #jwt
 python-jose
+fastapi-jwt-auth
 
 #for accessing form data
 python-multipart

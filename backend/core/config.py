@@ -1,12 +1,13 @@
 import os
 from dotenv import load_dotenv
+from pydantic import BaseSettings
 
 from pathlib import Path
 env_path = Path('.') / '.env'
 load_dotenv(dotenv_path=env_path)
 
 # config - File used for accessing environment variables
-class Settings:
+class Settings(BaseSettings):
   PROJECT_NAME: str = "Catch 'Em"
   PROJECT_VERSION: str = "1.0.0"
 
@@ -21,10 +22,11 @@ class Settings:
 
   TEST_DATABASE_URL = f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_SERVER}:{POSTGRES_PORT}/{POSTGRES_TEST_DB}"
 
-  JWT_TOKEN_EXPIRATION_MINUTES = 60 * 6
-  JWT_SECRET = os.getenv("JWT_SECRET")
-  JWT_ALGORITHM = os.getenv("JWT_ALGORITHM")
+  authjwt_secret_key: str = os.getenv("JWT_SECRET")
+  JWT_ACCESS_TOKEN_EXPIRATION: int = os.getenv("JWT_ACCESS_TOKEN_EXPIRATION")
+  JWT_REFRESH_TOKEN_EXPIRATION: int = os.getenv("JWT_REFRESH_TOKEN_EXPIRATION")
 
   OPEN_WEATHER_MAP_API_KEY = os.getenv("OPEN_WEATHER_MAP_API_KEY")
   MINUTES_TO_USE_HISTORY_API = os.getenv("MINUTES_TO_USE_HISTORY_API")
+
 settings = Settings()
